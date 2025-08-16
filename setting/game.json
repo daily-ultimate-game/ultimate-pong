@@ -1,6 +1,8 @@
 {
-  "title": "ultimate-game-template",
-  "description": "A fun ultimate game.",
+  "title": "ultimate-pong",
+  "description": "A fun ultimate pong game with rebirth and more.",
   "cover_image": "cover.jpg",
-  "repo": "daily-ultimate-game/ultimate-game-template"
+  "repo": "daily-ultimate-game/ultimate-pong",
+  "author": "paco1127",
+  "tags": ["pong", "rebirth", "arcade", "ai"]
 }

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Ascension</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="titlebar">
+        <h1>Pong Ascension</h1>
+    </div>
+    <div id="scoreboard">
+        <span id="player-score">0</span> : <span id="ai-score">0</span>
+        <span id="point-mult"></span>
+    </div>
+    <!-- Add a flex container for controls and skills bar -->
+    <div id="top-controls-bar">
+        <div id="reset-buttons-group">
+            <button id="reset-modifiers-btn" class="action-button blue-button">Reset Modifiers</button>
+            <button id="hard-reset-btn" class="action-button red-button">Hard Reset</button>
+        </div>
+        <div id="skills-bar"></div>
+    </div>
+    <div id="modifiers-bar"></div>
+    <div id="pong-boards"></div>
+    <div id="intro-screen">
+        <div class="intro-content ultra-fancy">
+            <h1 class="main-title">Pong Ascension</h1>
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="controls">Controls</button>
+                <button class="tab-btn" data-tab="boards">Boards &#x26; Progression</button>
+                <button class="tab-btn" data-tab="modifiers">Modifiers</button>
+                <button class="tab-btn" data-tab="rebirth">Rebirth &#x26; Skills</button>
+                <button class="tab-btn" data-tab="game">Game</button>
+            </div>
+            <div class="tab-content active" id="controls-tab">
+                <h2>Controls</h2>
+                <div class="menu-desc">
+                    <div><b>Move your mouse up/down</b> to control your paddle (left side).</div>
+                    <div><b>Score</b> by sending balls past the right paddle.</div>
+                </div>
+            </div>
+            <div class="tab-content" id="boards-tab">
+                <h2>Boards &#x26; Progression</h2>
+                <div class="menu-desc">
+                    <div>After every <b>10 rebirths</b>, you unlock a new Pong board, up to 100!</div>
+                    <div>All boards are controlled in sync by your mouse.</div>
+                    <div>Boards arrange in a grid (max 10x10).</div>
+                </div>
+            </div>
+            <div class="tab-content" id="modifiers-tab">
+                <h2>Modifiers</h2>
+                <div class="modifier-chances-fancy">
+                    <div>
+                        <h3>Player Modifiers</h3>
+                        <div class="menu-desc">
+                            <div>20% <b>Extra Ball</b></div>
+                            <div>30% <b>Larger Ball</b></div>
+                            <div>10% <b>Slower Ball</b></div>
+                            <div>17% <b>Color Change</b></div>
+                            <div>10% <b>Larger Paddle</b></div>
+                            <div>10% <b>Smaller AI Paddle</b></div>
+                            <div>2.9% <b>Gold Ball</b> (2x pts)</div>
+                            <div>0.1% <b>Diamond Ball</b> (3x pts)</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>AI Modifiers</h3>
+                        <div class="menu-desc">
+                            <div>20% <b>Extra Ball</b></div>
+                            <div>30% <b>Smaller Ball</b></div>
+                            <div>10% <b>Faster Ball</b></div>
+                            <div>17% <b>Color Change</b></div>
+                            <div>10% <b>Smaller Paddle</b></div>
+                            <div>10% <b>Larger AI Paddle</b></div>
+                            <div>2.9% <b>Gold Ball</b> (2x pts)</div>
+                            <div>0.1% <b>Diamond Ball</b> (3x pts)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="rebirth-tab">
+                <h2>Rebirth &#x26; Skills</h2>
+                <div class="menu-desc">
+                    <div>Reach <b>100 points</b> to Rebirth:</div>
+                    <div class="rebirth-bonus">+1.01x Point Multiplier (stacks infinitely)</div>
+                    <div class="rebirth-bonus">Unlock one Skill permanently</div>
+                    <div>Skills are activated with hotkeys (1–9) or by clicking the skill buttons.</div>
+                </div>
+            </div>
+            <div class="tab-content" id="game-tab">
+                <div class="intro-buttons">
+                    <button id="start-btn">Start Game</button>
+                    <button id="new-game-btn">New Game</button>
+                    <button id="load-game-btn">Load Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="boost-modal" class="hidden">
+        <div id="boost-content" tabindex="-1">
+            <!-- Dynamically populated by JS -->
+        </div>
+    </div>
+    <script>
+        // Ensure game initializes on load
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof firstInit === 'function') firstInit();
+        });
+    </script>
+</body>
+</html>
